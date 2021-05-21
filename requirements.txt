@@ -3,4 +3,4 @@ tensorflow
 opencv-python
 pandas
 matplotlib
-pyyaml h5py
+tqdm
