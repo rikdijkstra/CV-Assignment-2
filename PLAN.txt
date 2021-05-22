@@ -1,0 +1,59 @@
+STEP 1
+Import data and get model running - CHECK
+
+STEP 2
+Implement scoring/metrics
+Accuracy
+Precision
+Recall
+ROC curve
+Confusion matrices
+Tensorboard?
+
+STEP 3
+Stopping conditions -> Callbacks
+
+STEP 4
+Tune parameters
+Possibilities:
+    More/Less layers
+    Deeper/Wider (More layers, taller layers)
+    Pointwise(1x1) filters
+
+    Stride
+        1 preserve spatial resolution
+        2 downsample
+        1/2 upsample
+            also called transposed convolution
+
+    Pooling
+        max pooling
+            pooling size 2x2
+            same padding
+
+        global/average pooling
+            handles variable-sized inputs (not applicable)
+
+    Activation functions
+        relu works well except for the output layer
+        TODO find more info about activation functions
+
+        Sigmoid -> vanishing gradient
+        TanH -> same, little less
+        ReLU -> clipped linear activation, better. Easy to optimize, sometimes dies (once 0 stops being optimized).
+            Leaky ReLU -> Fixes this
+            Parametric ReLU, ELU -> Similar
+
+    Loss functions
+        Mean Squared Error
+        Cross entropy (better)
+        Softmax (I think we can just use this)
+
+    Regularization
+        L2 weight decay and dropout
+        TODO find more info about regularization
+
+    Batch size
+        32
+        Noisy gradient -> bigger
+        Stuck in local minima/ out of memory -> smaller
