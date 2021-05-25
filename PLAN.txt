@@ -1,7 +1,7 @@
 STEP 1
 Import data and get model running - CHECK
 
-STEP 2
+STEP 2 - CHECK
 Implement scoring/metrics
 Accuracy
 Precision
@@ -9,34 +9,58 @@ Recall
 ROC curve
 Confusion matrices
 Tensorboard?
+SKLearn!
 
-STEP 3
-Stopping conditions -> Callbacks
+STEP 3 - NO TIME
+Stopping conditions -> Callbacks OPTIONAL
 
-STEP 4
+STEP 4 - CHECK
+Visualize learnt filters
+
+STEP 5 - CHECK
 Tune parameters
 Possibilities:
     More/Less layers
     Deeper/Wider (More layers, taller layers)
     Pointwise(1x1) filters
 
-    Stride
-        1 preserve spatial resolution
-        2 downsample
-        1/2 upsample
-            also called transposed convolution
+    Layers
+        Convolutional Layer
+            Stride
+                1 preserve spatial resolution
+                2 downsample
+                1/2 upsample
+                    also called transposed convolution
 
-    Pooling
-        max pooling
-            pooling size 2x2
-            same padding
+        Pooling
+            max pooling
+                pooling size 2x2
+                same padding
+            global/avg pooling
+                takes the average of each window
+                handles variable-sized inputs (not applicable)
+            sum pooling
+                takes the sum of each window
 
-        global/average pooling
-            handles variable-sized inputs (not applicable)
+        Fully connected layer -> Dense layers!
+            Here the classification process takes place
+
+        Dropout
+            When all features are connected to the fully connected layer
+            it can cause overfitting on the training dataset. Overfitting
+            occurs when the model works so well on the training data s.t.
+            it loses performance on new data.
+
+            A dropout layer is used to overcome this. A few neurons are
+            dropped resulting in reduced size of the model. Dropout 0.3 -> 30%
+            of the nodes are dropped out randomly from the NN.
+
+
 
     Activation functions
         relu works well except for the output layer
-        TODO find more info about activation functions
+        We will only use relu and sigmoid. Explain why
+        others are suboptimal.
 
         Sigmoid -> vanishing gradient
         TanH -> same, little less
